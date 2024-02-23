@@ -22,8 +22,12 @@ fun main() {
 //Exercício 1
 //Escreva um programa usando Kotlin que receba o salário de uma pessoa colaboradora,
 // calcule e mostre o novo salário, sabendo-se que este sofreu um aumento de 25%.
-fun increaseSalary(salary: Double) {
-  println("The salary has increased from $salary to ${salary * 1.25}.")
+fun increaseSalary(salary: Double): Double {
+  val newSalary: Double = salary * 1.25
+
+  println("The salary has increased from $salary to $newSalary.")
+
+  return newSalary
 }
 
 //Exercício 2
@@ -32,16 +36,24 @@ fun increaseSalary(salary: Double) {
 // deseja alcançar usando a escada, calcule e mostre quantos degraus ela deverá subir
 // para atingir seu objetivo, sem se preocupar com a altura da pessoa. Todas as medidas
 // fornecidas devem estar em metros.
-fun calculateSteps(stepHeight: Double, targetHeight: Double) {
+fun calculateSteps(stepHeight: Double, targetHeight: Double): Double {
+  val totalSteps: Double = targetHeight / stepHeight
+
   println("For the person to climb $targetHeight meters knowing that the height" +
-      "of the step is $stepHeight meters, he needs to climb ${targetHeight / stepHeight}" +
+      "of the step is $stepHeight meters, he needs to climb $totalSteps" +
       "steps.")
+
+  return totalSteps
 }
 
 //Exercício 3
 //Escrevas um programa em Kotlin que receba dois números e mostre o maior.
-fun biggestNumber(num1: Int, num2: Int) {
-  println("The biggest number between $num1 and $num2 is ${if (num1 > num2) num1 else num2}.")
+fun biggestNumber(num1: Int, num2: Int): Int {
+  val biggest: Int = if (num1 > num2) num1 else num2
+
+  println("The biggest number between $num1 and $num2 is $biggest.")
+
+  return biggest
 }
 
 //Exercício 4
@@ -50,15 +62,18 @@ fun biggestNumber(num1: Int, num2: Int) {
 //Média aritmética igual ou maior que 0.0 e menor do que 3.0, exibir a mensagem REPROVADO
 //Média aritmética igual ou maior que 3.0 e menor do que 7.0, exibir a mensagem EXAME
 //Média aritmética igual ou maior que 7.0 e menor do que 10.0, exibir a mensagem APROVADO
-fun evaluateGrades(grade1: Double, grade2: Double, grade3: Double) {
-  val average = (grade1 + grade2 + grade3) / 3
+fun evaluateGrades(grade1: Double, grade2: Double, grade3: Double): String {
+  val average: Double = (grade1 + grade2 + grade3) / 3
   val df = DecimalFormat("#.##")
 
   if (average < 3) {
     println("The average grade is ${df.format(average)}. REPROVADO.")
+    return "REPROVADO"
   } else if (average >= 3 && average < 7) {
     println("The average grade is ${df.format(average)}. EXAME.")
+    return "EXAME"
   } else {
     println("The average grade is ${df.format(average)}. APROVADO.")
+    return "APROVADO"
   }
 }
